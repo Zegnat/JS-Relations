@@ -23,21 +23,17 @@ $(document).ready(function()
                 {
                     if (this.nextSibling != null)
                     {
-                        console.log("Sibling");
                         if (this.nextSibling.getAttribute("class") != "cityList")
                         {
-                            console.log("no cityList");
                             getCities(this.id);
                         }
                         else
                         {
-                            console.log("cityList found, removing!");
                             this.nextSibling.remove();
                         }
                     }
                     else
                     {
-                        console.log("no sibling");
                         getCities(this.id);
                     }
                 }

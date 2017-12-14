@@ -1,8 +1,7 @@
 Promise.all([
   window.fetch('land.json').then(res => res.json()),
   window.fetch('stad.json').then(res => res.json())
-]).then(data => {
-  let [countries, cities] = data
+]).then(([countries, cities]) => {
   let fragment = document.createDocumentFragment()
   countries.sort((a, b) => a.countryname.localeCompare(b.countryname, 'sv')).forEach(country => {
     let details = document.createElement('details')

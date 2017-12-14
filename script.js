@@ -3,6 +3,7 @@ Promise.all([
   window.fetch('stad.json').then(res => res.json())
 ]).then(data => {
   let [countries, cities] = data
+  let fragment = document.createDocumentFragment()
   countries.sort((a, b) => a.countryname.localeCompare(b.countryname, 'sv')).forEach(country => {
     let details = document.createElement('details')
     let summary = document.createElement('summary')
@@ -15,6 +16,7 @@ Promise.all([
       list.appendChild(item)
     })
     details.appendChild(list)
-    document.body.appendChild(details)
+    fragment.appendChild(details)
   })
+  document.body.appendChild(fragment)
 })
